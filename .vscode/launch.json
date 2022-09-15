@@ -5,13 +5,6 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Download and Run current file",
-            "type": "ev3devBrowser",
-            "request": "launch",
-            "program": "/home/robot/${workspaceFolderBasename}/${relativeFile}",
-            "interactiveTerminal": true
-        },
-        {
             "name": "Download and Run my-program",
             "type": "ev3devBrowser",
             "request": "launch",
