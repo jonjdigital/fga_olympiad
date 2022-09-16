@@ -14,33 +14,35 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 
 # Create your objects here.
 ev3 = EV3Brick()
-motorBack = Motor(Port.A)
-motorLeft = Motor(Port.B)
-motorRight = Motor(Port.C)
+# motorBack = Motor(Port.D)
+motorLeft = Motor(Port.D)
+motorRight = Motor(Port.A)
 
 distanceSensor = UltrasonicSensor(Port.S1)
-touch = TouchSensor(Port.S2)
+# touch = TouchSensor(Port.S2)
 
-driver = DriveBase(motorLeft,motorRight,80,40)
+driver = DriveBase(motorLeft,motorRight,50,25)
 
-# Write your program here.
-ev3.speaker.beep()
+armMotor = Motor(Port.C)
+
+armMotor.run_until_stalled(-200)
 
 # Write your program here.
 ev3.speaker.beep()
 
 while True:
     # Begin driving forward at 200 millimeters per second.
-    driver.drive(-200, 0)
+    # motorBack.stop()
+    driver.drive(200, 0)
 
     # Wait until an obstacle is detected. This is done by repeatedly
     # doing nothing (waiting for 10 milliseconds) while the measured
     # distance is still greater than 300 mm.
-    while distanceSensor.distance() > 300:
+    while distanceSensor.distance() > 250:
         wait(10)
 
-    # Drive backward for 300 millimeters.
-    driver.straight(300)
+     # Drive backward for 100 millimeters.
+    driver.straight(-100)
 
     # Turn around by 120 degrees
-    driver.turn(120)
+    driver.turn(90)
